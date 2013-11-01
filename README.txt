@@ -20,7 +20,7 @@ Thank you for downloading UserPie, the simple user management package.
 
 2. Create a database on your server / web hosting package.
 
-3. Fill out the connection details in settings.php
+3. Fill out the connection details and outgoing mail info in settings.php
 
 4. UserPie supports mysql and mysqli via phpBB's DBAL layer, UserPie defaults to mysql, to change it to mysqli change variable $dbtype to "mysqli".
 

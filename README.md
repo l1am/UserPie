@@ -3,6 +3,10 @@ USERPIE
 
 UserPie is an open source PHP user management framework.
 
+This version connects with Gmail's SMTP server to send mail from a Google Apps address.
+
+The PHPMailer library is used to send mail. SMTP settings are below database settings in settings.php.
+
 DOWNLOAD
 ============
 
@@ -15,9 +19,3 @@ FEATURES
 ============
 
 User Login, Registration Form, Password Recovery, E-Mail Verification, Session Cookie ("Remember Me"), Change Password Form, Update E-mail Form, Twitter Bootstrap (CSS framework)
-
-
-OTHER PROJECTS
-===============
-
-RGBHexCode ColourPicker --> http://rgbhexcode.com

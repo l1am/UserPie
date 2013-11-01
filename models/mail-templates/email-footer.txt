@@ -1,3 +1,5 @@
-
-  - Regards
-  UserPie.com
+<p>- Regards<br />
+UserPie.com
+</p>
+</div>
+</body>

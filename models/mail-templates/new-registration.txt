@@ -1,8 +1,13 @@
-Hello #USERNAME#
-
-Thank you for joining our website #WEBSITENAME#
-
-
+<body style="margin: 10px;">
+<div style="width: 640px;">
+<p>Hello, #USERNAME#</p>
+<p>Thank you for joining our website #WEBSITENAME#</p>
+<p>
 #ACTIVATION-MESSAGE
-
+</p>
 #INC-FOOTER#
+
+
+
+
+

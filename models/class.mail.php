@@ -61,12 +61,13 @@ class userPieMail {
 	
 	public function sendMail($email,$subject,$msg = NULL)
 	{
-		global $websiteName,$emailAddress;
+
+		date_default_timezone_set('America/Toronto');
+
+		global $websiteName,$emailAddress, $mailSMTPAuth, $mailSMTPSecure, $mailHost, $mailPort, $mailUsername, $mailPassword;
 		
 		$header = "MIME-Version: 1.0\r\n";
 		$header .= "Content-type: text/plain; charset=iso-8859-1\r\n";
-		$header .= "From: ". $websiteName . " <" . $emailAddress . ">\r\n";
-		
 		 
 		//Check to see if we sending a template email.
 		if($msg == NULL)
@@ -75,8 +76,38 @@ class userPieMail {
 		$message .= $msg;
 
 		$message = wordwrap($message, 70);
-			
-		return mail($email,$subject,$message,$header);
+
+		require_once('class.phpmailer.php');
+		//include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
+
+		$mail = new PHPMailer();
+
+		$mail->IsSMTP(); // telling the class to use SMTP
+		//$mail->Host       = "ssl://smtp.gmail.com"; // SMTP server
+		$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
+		                                           // 1 = errors and messages
+		                                           // 2 = messages only
+		$mail->SMTPAuth   = $mailSMTPAuth;                  // enable SMTP authentication
+		$mail->SMTPSecure = $mailSMTPSecure;                 // sets the prefix to the servier
+		$mail->Host       = $mailHost;      // sets GMAIL as the SMTP server
+		$mail->Port       = $mailPort;                   // set the SMTP port for the GMAIL server
+		$mail->Username   = $mailUsername; 		// GMAIL username
+		$mail->Password   = $mailPassword;       	// GMAIL password
+
+		$mail->SetFrom($emailAddress, $websiteName);
+
+		$mail->Subject = $subject;
+
+		$mail->MsgHTML($message);
+		$mail->AddAddress($email);
+
+		if(!$mail->Send()) {
+		  $mail = false;
+		} else {
+		  $mail = true;
+		}
+
+		return $mail;
 	}
 }
 

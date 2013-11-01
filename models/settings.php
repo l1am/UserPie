@@ -30,6 +30,14 @@
 	//If this variable is falses the resend-activation file not work.
 	$emailActivation = true;
 
+	//Mail SMTP Settings
+	$mailSMTPAuth   = true;              // enable SMTP authentication
+	$mailSMTPSecure = "ssl";             // sets the prefix to the servier
+	$mailHost       = "smtp.gmail.com";  // sets Gmail as the SMTP server
+	$mailPort       = 465;               // set the SMTP port (default for Gmail server)
+	$mailUsername   = "";                // Gmail username/email
+	$mailPassword   = "";                // Gmail password
+
 	//In hours, how long before UserPie will allow a user to request another account activation email
 	//Set to 0 to remove threshold
 	$resend_activation_threshold = 1;
